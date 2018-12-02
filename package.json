@@ -1,0 +1,56 @@
+{
+  "name": "fun-budgie-back-end",
+  "version": "1.0.0",
+  "description": "back-end for fun-budgie front-end",
+  "main": "src/app.js",
+  "scripts": {
+    "artillery": "./node_modules/artillery/bin/artillery",
+    "start": "node src/app.js",
+    "test": "eslint . && jest --coverage --collectCoverageFrom=src/lib/*.js --collectCoverageFrom=src/routes/*.js --collectCoverageFrom=src/__test__/lib/*-mock.js --collectCoverageFrom=!src/lib/error-middleware.js --forceExit --runInBand",
+    "jestSF": "./node_modules/jest/bin/jest.js --coverage --forceExit --runInBand $1",
+    "justJest": "jest --coverage --forceExit --runInBand",
+    "justLint": "./node_modules/eslint/bin/eslint.js ./src/*.js",
+    "start-server": "./makesure.sh; node ./src/app.js",
+    "dbDevOn": "mkdir -p ./testdb && mongod --dbpath ./testdb",
+    "devDbOff": "./killDevDb.sh",
+    "dbOn": "mkdir -p ./db && mongod --dbpath ./db",
+    "dbOff": "killall mongod"
+  },
+  "jest": {
+    "setupFiles": [
+      "<rootDir>/src/__test__/lib/test.env.js"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bgwest/fun-budgie-back-end.git"
+  },
+  "author": "Benjamin West",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/bgwest/fun-budgie-back-end/issues"
+  },
+  "homepage": "https://github.com/bgwest/fun-budgie-back-end#readme",
+  "dependencies": {
+    "bcrypt": "^3.0.2",
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "dotenv": "^6.1.0",
+    "express": "^4.16.4",
+    "http-errors": "^1.7.1",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.3.10",
+    "winston": "^3.1.0"
+  },
+  "devDependencies": {
+    "artillery": "^1.6.0-25",
+    "eslint": "^5.5.0",
+    "eslint-config-airbnb-base": "^13.1.0",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jest": "^21.22.0",
+    "faker": "^4.1.0",
+    "jest": "^23.6.0",
+    "logger": "0.0.1",
+    "superagent": "^4.0.0-beta.5"
+  }
+}
