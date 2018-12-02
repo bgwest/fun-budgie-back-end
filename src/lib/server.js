@@ -15,7 +15,7 @@ const app = express();
 
 // apply middleware
 app.use(cors({ credential: true }));
-// app.use(authRouter);
+app.use(authRouter);
 // "global" middleware
 app.use(loggerMiddleware);
 app.use(errorMiddleware);
