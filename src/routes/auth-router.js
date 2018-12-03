@@ -4,7 +4,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const HttpError = require('http-errors');
 
-const basicAuthMiddleware = require('../lib/basicAuthMiddleware');
+const basicAuthMiddleware = require('../lib/basic-auth-middleware');
 const User = require('../model/user');
 const logger = require('../lib/logger');
 
